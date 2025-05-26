@@ -4,4 +4,4 @@ My config for [LazyVim 💤](https://github.com/LazyVim/LazyVim).
 
 ## Installation
 
-Run `install.sh`
+Run `scripts/install.sh`
