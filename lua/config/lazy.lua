@@ -23,8 +23,8 @@ require("lazy").setup({
     {
       import = "local/plugins",
       enabled = function()
-        -- this might not be working :-/
-        return vim.fn.isdirectory("~/.config/nvim/lua/local/plugins") == 1
+        local path = vim.fn.expand("~/.config/nvim/lua/local/plugins")
+        return vim.fn.isdirectory(path) == 1
       end,
     },
   },
