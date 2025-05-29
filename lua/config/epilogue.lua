@@ -1,0 +1,11 @@
+vim.api.nvim_create_user_command("CopyBufPath", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  print("Copied: " .. path)
+end, {})
+
+vim.api.nvim_create_user_command("CopyRelBufPath", function()
+  local path = vim.fn.expand("%:~:.")
+  vim.fn.setreg("+", path)
+  print("Copied: " .. path)
+end, {})
