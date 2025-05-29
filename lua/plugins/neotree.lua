@@ -22,6 +22,9 @@ end
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  keys = {
+    { "<leader>r", "<cmd>Neotree reveal<cr>", desc = "Reveal in Neo-tree" },
+  },
   config = function()
     require("neo-tree").setup({
       filesystem = {
