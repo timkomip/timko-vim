@@ -12,8 +12,6 @@ return {
       ensure_installed = { "vtsls", "lua_ls" },
     },
     config = function(_, opts)
-      require("mason-lspconfig").setup(opts)
-
       -- Get capabilities from blink.cmp if available
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       local ok, blink = pcall(require, "blink.cmp")
@@ -21,7 +19,7 @@ return {
         capabilities = blink.get_lsp_capabilities(capabilities)
       end
 
-      require("mason-lspconfig").setup_handlers({
+      opts.handlers = {
         -- Default handler for all servers
         function(server_name)
           require("lspconfig")[server_name].setup({
@@ -39,7 +37,9 @@ return {
             },
           })
         end,
-      })
+      }
+
+      require("mason-lspconfig").setup(opts)
     end,
   },
 
