@@ -8,11 +8,13 @@ return {
   },
   keys = {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-    { "<leader>fg", function()
+    { "<leader>fF", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", desc = "Find in all files" },
+    { "<leader>sg", function()
       require("telescope").extensions.live_grep_args.live_grep_args()
     end, desc = "Live grep" },
-    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
+    { "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Grep word under cursor" },
+    { "<leader>sb", "<cmd>Telescope buffers<cr>", desc = "Search buffers" },
+    { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Search help" },
     { "<leader><leader>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
   },
   config = function()

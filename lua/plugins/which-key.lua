@@ -7,8 +7,9 @@ return {
     wk.setup({})
     wk.add({
       { "<leader>c", group = "Code" },
-      { "<leader>f", group = "Find" },
+      { "<leader>f", group = "File" },
       { "<leader>g", group = "Git" },
+      { "<leader>s", group = "Search" },
       { "<leader>u", group = "UI" },
     })
   end,
