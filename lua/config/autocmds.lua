@@ -24,6 +24,14 @@ autocmd("FileType", {
   end,
 })
 
+-- Close help with `q`
+autocmd("FileType", {
+  pattern = "help",
+  callback = function()
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = true, desc = "Close help" })
+  end,
+})
+
 command("NeoTreeGitProfile", function()
   require("config.neotree_profile").run()
 end, { desc = "Profile Neo-tree git_status open" })
