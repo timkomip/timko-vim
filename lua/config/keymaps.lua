@@ -19,6 +19,10 @@ map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 -- Quickfix
 map("n", "<leader>q", "<cmd>copen<cr>", { desc = "Open quickfix list" })
 
+-- Quit
+map("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
+map("n", "<leader>W", "<cmd>wqa<cr>", { desc = "Save and quit all" })
+
 -- UI toggles
 map("n", "<leader>uw", function()
   vim.wo.wrap = not vim.wo.wrap
