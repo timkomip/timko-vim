@@ -16,6 +16,30 @@ map("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Move to right window" })
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
+-- Buffers
+map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "<leader>bb", "<cmd>b#<cr>", { desc = "Switch to other buffer" })
+map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
+map("n", "<leader>bD", function()
+  local buf = vim.api.nvim_get_current_buf()
+  vim.cmd("close")
+  if vim.fn.bufwinnr(buf) == -1 then
+    vim.api.nvim_buf_delete(buf, { force = false })
+  end
+end, { desc = "Delete buffer and window" })
+map("n", "<leader>bo", function()
+  local current = vim.api.nvim_get_current_buf()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if buf ~= current and vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted then
+      vim.api.nvim_buf_delete(buf, { force = false })
+    end
+  end
+end, { desc = "Delete other buffers" })
+
+-- Windows
+map("n", "<leader>wd", "<C-w>c", { desc = "Delete window" })
+
 -- Quickfix
 map("n", "<leader>q", "<cmd>copen<cr>", { desc = "Open quickfix list" })
 
