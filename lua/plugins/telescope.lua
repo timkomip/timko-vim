@@ -9,12 +9,18 @@ return {
   keys = {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
     { "<leader>fF", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", desc = "Find in all files" },
+    { "<leader>fn", "<cmd>enew<cr>", desc = "New file" },
+    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent files" },
+    { "<leader>fc", function()
+      require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
+    end, desc = "Find config files" },
     { "<leader>sg", function()
       require("telescope").extensions.live_grep_args.live_grep_args()
     end, desc = "Live grep" },
     { "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Grep word under cursor" },
     { "<leader>sb", "<cmd>Telescope buffers<cr>", desc = "Search buffers" },
     { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Search help" },
+    { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Search registers" },
     { "<leader><leader>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
   },
   config = function()
