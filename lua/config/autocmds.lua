@@ -1,4 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
+local command = vim.api.nvim_create_user_command
 
 -- Highlight text briefly after yanking
 autocmd("TextYankPost", {
@@ -22,3 +23,7 @@ autocmd("FileType", {
     end, { buffer = true, desc = "Remove qf entry" })
   end,
 })
+
+command("NeoTreeGitProfile", function()
+  require("config.neotree_profile").run()
+end, { desc = "Profile Neo-tree git_status open" })
