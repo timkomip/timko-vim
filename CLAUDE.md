@@ -1,8 +1,10 @@
 # timko.nvim
 
-Custom NeoVim config (0.11.6) built from scratch. Separate from `~/.config/nvim`.
+Custom NeoVim config built from scratch. Lives at `~/.config/nvim` and uses default `nvim` appname — do NOT use `NVIM_APPNAME=timko.nvim` (plugins are at `~/.local/share/nvim/lazy/`, not `~/.local/share/timko.nvim/`).
 
-## Test: `NVIM_APPNAME=timko.nvim nvim`
+Current nvim: 0.12.1.
+
+## Test: `nvim`
 
 ## Structure
 
@@ -22,6 +24,3 @@ Custom NeoVim config (0.11.6) built from scratch. Separate from `~/.config/nvim`
 
 `legacy/` contains an old LazyVim-based config. **Do not** reference, read, or use it as a source of truth. Only access it when the user explicitly asks.
 
-## TODO
-
-See `TODO.md` for planned LSP/completion/formatting/linting work.
