@@ -1,11 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "master",
+  branch = "main",
   lazy = false,
   build = ":TSUpdate",
-  main = "nvim-treesitter.configs",
-  opts = {
-    ensure_installed = {
+  config = function()
+    require("nvim-treesitter").install({
       "ruby",
       "typescript",
       "javascript",
@@ -16,8 +15,12 @@ return {
       "yaml",
       "lua",
       "python",
-    },
-    highlight = { enable = true },
-    indent = { enable = true },
-  },
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+      end,
+    })
+  end,
 }
